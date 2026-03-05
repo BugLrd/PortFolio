@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tauhidur Rahman - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --accent: #ec4899;
+            --dark-bg: #ffffff;
+            --light-text: #0f172a;
+            --gray: #64748b;
+            --card-bg: #f1f5f9;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            color: var(--light-text);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e2e8f0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        nav button {
+            background: none;
+            border: none;
+            color: var(--light-text);
+            padding: 0.75rem 1.5rem;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border-radius: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        nav button:hover,
+        nav button.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Page Content */
+        .page {
+            display: none;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Home Page */
+        .home-page {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            padding: 4rem 0;
+            min-height: 90vh;
+        }
+
+        .home-content h1 {
+            font-family: 'Space Mono', monospace;
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            line-height: 1.1;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .home-content .title {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .home-content p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+            max-width: 500px;
+            line-height: 1.8;
+        }
+
+        .home-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .home-image img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 1rem;
+            border: 2px solid var(--primary);
+            box-shadow: 0 20px 60px rgba(37, 99, 235, 0.2);
+            object-fit: cover;
+        }
+
+        /* Education Page */
+        .education-page {
+            padding: 3rem 0;
+        }
+
+        .education-page h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .education-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        .education-card {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 1rem;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .education-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.1);
+        }
+
+        .education-header {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            align-items: start;
+        }
+
+        .education-logo {
+            width: 150px;
+            height: 150px;
+            background: white;
+            border: 2px solid var(--primary);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.1);
+        }
+
+        .education-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 10px;
+        }
+
+        .education-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: var(--light-text);
+        }
+
+        .education-info p {
+            color: var(--gray);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .education-description {
+            background: rgba(37, 99, 235, 0.05);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            border-left: 4px solid var(--primary);
+            margin-top: 1rem;
+        }
+
+        .education-description p {
+            color: var(--light-text);
+            line-height: 1.8;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-gallery {
+            margin-top: 2.5rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .gallery-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--light-text);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            height: 350px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.7));
+            color: white;
+            padding: 1rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transform: translateY(100%);
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-label {
+            transform: translateY(0);
+        }
+
+        /* Projects Page */
+        .projects-page {
+            padding: 3rem 0;
+        }
+
+        .projects-page h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 1rem;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 15px 40px rgba(37, 99, 235, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-content h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--light-text);
+        }
+
+        .project-content p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            flex: 1;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-tag {
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+            padding: 0.35rem 0.75rem;
+            border-radius: 0.35rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .project-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .project-link:hover {
+            color: var(--accent);
+            transform: translateX(5px);
+        }
+
+        /* Contact Page */
+        .contact-page {
+            padding: 3rem 0;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-container {
+            max-width: 500px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .contact-page h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .contact-page > .container > p {
+            text-align: center;
+            color: var(--gray);
+            margin-bottom: 2rem;
+        }
+
+        .contact-form {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 1px solid #e2e8f0;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--light-text);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.5rem;
+            background: white;
+            color: var(--light-text);
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: rgba(37, 99, 235, 0.05);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 0.75rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .submit-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.2);
+        }
+
+        #form-status {
+            margin-top: 1rem;
+            text-align: center;
+            font-weight: 600;
+            display: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .home-page {
+                grid-template-columns: 1fr;
+                padding: 2rem 0;
+            }
+
+            .home-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .education-header {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                max-width: 100%;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav .container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                width: 100%;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav button {
+                padding: 0.5rem 1rem;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">Tauhidur Rahman</div>
+            <ul>
+                <li><button class="nav-btn active" data-page="home">About</button></li>
+                <li><button class="nav-btn" data-page="education">Education</button></li>
+                <li><button class="nav-btn" data-page="projects">Projects</button></li>
+                <li><button class="nav-btn" data-page="contact">Contact</button></li>
+                <li><button class="nav-btn resume-btn">📄 Download Resume</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div class="page active" id="home">
+        <div class="container">
+            <div class="home-page">
+                <div class="home-content">
+                    <h1>Tauhidur Rahman</h1>
+                    <div class="title">Android Developer</div>
+                    <p>Computer Science student passionate about Linux systems, developer tooling, and building practical software solutions that solve real problems.</p>
+                    <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+                        <a href="https://github.com/BugLrd" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: 600;">GitHub →</a>
+                        <a href="https://www.linkedin.com/in/tauhidur-rahman-17503b395" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: 600;">LinkedIn →</a>
+                        <a href="#" onclick="window.open('mailto:tauhidur.cs@proton.me'); return false;" style="color: var(--primary); text-decoration: none; font-weight: 600;">Email →</a>
+                    </div>
+                </div>
+                <div class="home-image">
+                    <img src="image.jpg" alt="Professional headshot">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Education Page -->
+    <div class="page" id="education">
+        <div class="container">
+            <h2>Education</h2>
+            <div class="education-container">
+                <div class="education-card">
+                    <div class="education-header">
+                        <div class="education-logo">
+                            <img src="logo.png" alt="AIUB Logo">
+                        </div>
+                        <div class="education-info">
+                            <h3>BSc Computer Science</h3>
+                            <p><strong>American International University-Bangladesh (AIUB)</strong></p>
+                            <p>Currently Studying</p>
+                            <div class="education-description">
+                                <p><strong>Focus Areas:</strong> Data Structures, Algorithms, Operating Systems, Software Engineering, Database Management</p>
+                                <p style="margin-top: 0.5rem;"><strong>Skills:</strong> Problem-solving, System Design, OOP, Web Development, Linux Administration</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="education-gallery">
+                        <div class="gallery-title">Campus & University Life</div>
+                        <div class="gallery-grid">
+                            <div class="gallery-item">
+                                <img src="arduino.jpg" alt="Campus">
+                                <div class="gallery-label">University Campus</div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="arduino2.jpg" alt="Graduation">
+                                <div class="gallery-label">Graduation Day</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Projects Page -->
+    <div class="page" id="projects">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="logo2.png" alt="Disaster Relief System">
+                    </div>
+                    <div class="project-content">
+                        <h3>Disaster Donation Relief System</h3>
+                        <p>Manage disaster relief donations, track contributors, and organize resource distribution using object-oriented programming.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">C#</span>
+                            <span class="tech-tag">OOP</span>
+                            <span class="tech-tag">Data Management</span>
+                        </div>
+                        <a href="https://github.com/BugLrd/DisasterDonationReliefManagementSystem" target="_blank" class="project-link">View on GitHub →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="logo3.png" alt="NixOS Config">
+                    </div>
+                    <div class="project-content">
+                        <h3>NixOS System Configuration</h3>
+                        <p>Declarative Linux system configuration using Nix flakes for reproducible and maintainable development environments.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">NixOS</span>
+                            <span class="tech-tag">Linux</span>
+                            <span class="tech-tag">Shell</span>
+                        </div>
+                        <a href="https://github.com/shayon07/nixcfg" target="_blank" class="project-link">View on GitHub →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="logo3.jpg" alt="Web Automation">
+                    </div>
+                    <div class="project-content">
+                        <h3>Web Scraping & Automation</h3>
+                        <p>Python automation scripts using BeautifulSoup and Selenium to extract and organize structured web data.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">BeautifulSoup</span>
+                            <span class="tech-tag">Selenium</span>
+                        </div>
+                        <a href="https://github.com/BugLrd" target="_blank" class="project-link">View on GitHub →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="cc.jpg" alt="Campus Connect">
+                    </div>
+                    <div class="project-content">
+                        <h3>Campus Connect</h3>
+                        <p>University information and event notification application for students. Implemented user authentication and real-time event updates using Firebase with a focus on efficient data synchronization.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Android</span>
+                            <span class="tech-tag">Kotlin</span>
+                            <span class="tech-tag">Firebase</span>
+                            <span class="tech-tag">MVVM</span>
+                            <span class="tech-tag">Jetpack</span>
+                        </div>
+                        <a href="https://github.com/BugLrd/campus-connect" target="_blank" class="project-link">View on GitHub →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="tdl.jpg" alt="ToDoList Application">
+                    </div>
+                    <div class="project-content">
+                        <h3>ToDoList Application</h3>
+                        <p>Desktop task manager with secure login and user authentication. Implemented complete CRUD functionality for task creation, editing, completion, and deletion with an intuitive graphical interface.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">Swing</span>
+                            <span class="tech-tag">CRUD</span>
+                            <span class="tech-tag">GUI</span>
+                        </div>
+                        <a href="https://github.com/BugLrd/todolist-application" target="_blank" class="project-link">View on GitHub →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="set.png" alt="Smart Expense Tracker">
+                    </div>
+                    <div class="project-content">
+                        <h3>Smart Expense Tracker</h3>
+                        <p>Personal finance management application to track daily expenses and budgets. Built with local data storage using Jetpack Room for persistent data management and lifecycle-aware components.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Android</span>
+                            <span class="tech-tag">Kotlin</span>
+                            <span class="tech-tag">Room Database</span>
+                            <span class="tech-tag">Material Design</span>
+                        </div>
+                        <a href="https://github.com/BugLrd/expense-tracker" target="_blank" class="project-link">View on GitHub →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Page -->
+    <div class="page" id="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <p style="color: var(--gray); text-align: center; margin-bottom: 2rem;">Send me a message and I'll get back to you soon</p>
+            <div class="contact-container">
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                    <p id="form-status"></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Page Navigation
+        const navButtons = document.querySelectorAll('.nav-btn');
+        const pages = document.querySelectorAll('.page');
+
+        navButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const pageId = button.getAttribute('data-page');
+                
+                // Remove active from all buttons and pages
+                navButtons.forEach(btn => btn.classList.remove('active'));
+                pages.forEach(page => page.classList.remove('active'));
+                
+                // Add active to clicked button and corresponding page
+                button.classList.add('active');
+                document.getElementById(pageId).classList.add('active');
+            });
+        });
+
+        // Resume Button - Open in new tab
+        document.querySelector('.resume-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.open('https://drive.google.com/file/d/1Si5OxFL-1LGPNNW-0eDWeMKlH7G6hKSC/view?usp=sharing', '_blank');
+        });
+
+        // Contact Form
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const message = document.getElementById('message').value;
+            const statusElement = document.getElementById('form-status');
+            
+            if (!message) {
+                statusElement.textContent = 'Please write a message.';
+                statusElement.style.color = '#fca5a5';
+                statusElement.style.display = 'block';
+                return;
+            }
+            
+            const mailtoLink = `mailto:tauhidur.cs@proton.me?subject=Portfolio Message&body=${encodeURIComponent(message)}`;
+            
+            statusElement.textContent = '✓ Message sent! Opening email client...';
+            statusElement.style.color = '#86efac';
+            statusElement.style.display = 'block';
+            
+            setTimeout(() => {
+                window.location.href = mailtoLink;
+            }, 500);
+            
+            setTimeout(() => {
+                this.reset();
+                statusElement.style.display = 'none';
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
