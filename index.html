@@ -411,42 +411,200 @@
             transform: translateX(5px);
         }
 
+        /* Skills Page */
+        .skills-page {
+            padding: 3rem 0;
+        }
+
+        .skills-page h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .skill-category {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .skill-category h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .skill-item {
+            background: white;
+            border: 1.5px solid var(--primary);
+            color: var(--primary);
+            padding: 0.6rem 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .skill-item:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.2);
+        }
+
         /* Contact Page */
         .contact-page {
-            padding: 3rem 0;
-            min-height: 90vh;
+            padding: 4rem 0;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .contact-container {
-            max-width: 500px;
+        .contact-wrapper {
             width: 100%;
-            margin: 0 auto;
+            max-width: 900px;
         }
 
         .contact-page h2 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 1rem;
             text-align: center;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .contact-description {
+            text-align: center;
+            color: var(--gray);
+            margin-bottom: 4rem;
+            font-size: 1.1rem;
         }
 
         .contact-page > .container > p {
             text-align: center;
             color: var(--gray);
-            margin-bottom: 2rem;
+            margin-bottom: 4rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 0;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            padding: 1.2rem;
+            background: var(--card-bg);
+            border-radius: 1rem;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .contact-info-item:hover {
+            border-color: var(--primary);
+            transform: translateX(5px);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.1);
+            background: rgba(37, 99, 235, 0.02);
+        }
+
+        .contact-info-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: rgba(37, 99, 235, 0.1);
+            border-radius: 0.8rem;
+        }
+
+        .contact-info-item svg {
+            width: 28px;
+            height: 28px;
+            color: var(--primary);
+        }
+
+        .contact-info-content h3 {
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+            color: var(--light-text);
+            font-weight: 600;
+        }
+
+        .contact-info-content p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .contact-form-wrapper {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 1.2rem;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-form-wrapper h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--light-text);
         }
 
         .contact-form {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 1rem;
-            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
         }
 
         .form-group label {
@@ -454,61 +612,113 @@
             margin-bottom: 0.5rem;
             font-weight: 600;
             color: var(--light-text);
+            font-size: 0.95rem;
         }
 
-        .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #e2e8f0;
-            border-radius: 0.5rem;
-            background: white;
-            color: var(--light-text);
+            padding: 1rem;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 0.7rem;
             font-family: 'Poppins', sans-serif;
+            font-size: 0.95rem;
+            resize: vertical;
+            min-height: 150px;
             transition: all 0.3s ease;
-            font-size: 1rem;
+            background: white;
         }
 
-        .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
             border-color: var(--primary);
-            background: rgba(37, 99, 235, 0.05);
+            background: rgba(37, 99, 235, 0.02);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
         }
 
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
+        .form-group textarea::placeholder {
+            color: #cbd5e1;
         }
 
         .submit-btn {
             width: 100%;
-            padding: 0.75rem;
-            background: var(--primary);
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
             color: white;
             border: none;
-            border-radius: 0.5rem;
+            border-radius: 0.7rem;
             font-weight: 700;
             font-size: 1rem;
             cursor: pointer;
             transition: all 0.3s ease;
             font-family: 'Poppins', sans-serif;
+            letter-spacing: 0.5px;
         }
 
         .submit-btn:hover {
-            background: var(--primary-dark);
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.2);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0px);
         }
 
         #form-status {
-            margin-top: 1rem;
             text-align: center;
             font-weight: 600;
             display: none;
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 0.6rem;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .contact-page h2 {
+                font-size: 2rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .contact-form-wrapper {
+                padding: 1.5rem;
+            }
+        }
         }
 
         /* Responsive */
+        /* Footer */
+        footer {
+            background: var(--card-bg);
+            border-top: 1px solid #e2e8f0;
+            padding: 2.5rem 0;
+            margin-top: 4rem;
+        }
+
+        footer {
+            background: var(--card-bg);
+            border-top: 1px solid #e2e8f0;
+            padding: 2rem 0;
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        footer .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer-text {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
         @media (max-width: 768px) {
             .home-page {
                 grid-template-columns: 1fr;
@@ -559,6 +769,7 @@
                 <li><button class="nav-btn active" data-page="home">About</button></li>
                 <li><button class="nav-btn" data-page="education">Education</button></li>
                 <li><button class="nav-btn" data-page="projects">Projects</button></li>
+                <li><button class="nav-btn" data-page="skills">Skills</button></li>
                 <li><button class="nav-btn" data-page="contact">Contact</button></li>
                 <li><button class="nav-btn resume-btn">📄 Download Resume</button></li>
             </ul>
@@ -573,11 +784,6 @@
                     <h1>Tauhidur Rahman</h1>
                     <div class="title">Android Developer</div>
                     <p>Computer Science student passionate about Linux systems, developer tooling, and building practical software solutions that solve real problems.</p>
-                    <div style="display: flex; gap: 1rem; margin-top: 2rem;">
-                        <a href="https://github.com/BugLrd" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: 600;">GitHub →</a>
-                        <a href="https://www.linkedin.com/in/tauhidur-rahman-17503b395" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: 600;">LinkedIn →</a>
-                        <a href="#" onclick="window.open('mailto:tauhidur.cs@proton.me'); return false;" style="color: var(--primary); text-decoration: none; font-weight: 600;">Email →</a>
-                    </div>
                 </div>
                 <div class="home-image">
                     <img src="image.jpg" alt="Professional headshot">
@@ -680,7 +886,7 @@
 
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="cc.jpg" alt="Campus Connect">
+                        <img src="campus-connect.png" alt="Campus Connect">
                     </div>
                     <div class="project-content">
                         <h3>Campus Connect</h3>
@@ -698,7 +904,7 @@
 
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="tdl.jpg" alt="ToDoList Application">
+                        <img src="todolist-app.png" alt="ToDoList Application">
                     </div>
                     <div class="project-content">
                         <h3>ToDoList Application</h3>
@@ -715,7 +921,7 @@
 
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="set.png" alt="Smart Expense Tracker">
+                        <img src="expense-tracker.png" alt="Smart Expense Tracker">
                     </div>
                     <div class="project-content">
                         <h3>Smart Expense Tracker</h3>
@@ -733,23 +939,136 @@
         </div>
     </div>
 
+    <!-- Skills Page -->
+    <div class="page" id="skills">
+        <div class="container">
+            <h2>Core Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Languages</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">Java</span>
+                        <span class="skill-item">Kotlin</span>
+                        <span class="skill-item">Python</span>
+                        <span class="skill-item">C#</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Mobile Development</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">Android</span>
+                        <span class="skill-item">Firebase</span>
+                        <span class="skill-item">MVVM</span>
+                        <span class="skill-item">Jetpack</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Tools & Systems</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">Git/GitHub</span>
+                        <span class="skill-item">Linux</span>
+                        <span class="skill-item">Android Studio</span>
+                        <span class="skill-item">SQL</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Core Concepts</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">OOP</span>
+                        <span class="skill-item">Data Structures</span>
+                        <span class="skill-item">Algorithms</span>
+                        <span class="skill-item">System Design</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Contact Page -->
     <div class="page" id="contact">
         <div class="container">
             <h2>Get In Touch</h2>
-            <p style="color: var(--gray); text-align: center; margin-bottom: 2rem;">Send me a message and I'll get back to you soon</p>
-            <div class="contact-container">
-                <form class="contact-form" id="contact-form">
-                    <div class="form-group">
-                        <label for="message">Your Message</label>
-                        <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Send Message</button>
-                    <p id="form-status"></p>
-                </form>
+            <p class="contact-description">I'd love to hear from you. Reach out through any of these channels.</p>
+            
+            <div class="contact-grid">
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <a href="https://github.com/BugLrd" target="_blank" class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </div>
+                        <div class="contact-info-content">
+                            <h3>GitHub</h3>
+                            <p>Check out my projects and code</p>
+                        </div>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/tauhidur-rahman-17503b395" target="_blank" class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/>
+                            </svg>
+                        </div>
+                        <div class="contact-info-content">
+                            <h3>LinkedIn</h3>
+                            <p>Connect with me professionally</p>
+                        </div>
+                    </a>
+
+                    <a href="mailto:tauhidur.cs@proton.me" class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                            </svg>
+                        </div>
+                        <div class="contact-info-content">
+                            <h3>Email</h3>
+                            <p>tauhidur.cs@proton.me</p>
+                        </div>
+                    </a>
+
+                    <a href="https://twitter.com" target="_blank" class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2s9 5 20 5a9.5 9.5 0 00-9-5.5c4.75 2.25 9 0 11-4s1-6.75 0-7.5a5.5 5.5 0 00-.5-.5z"></path>
+                            </svg>
+                        </div>
+                        <div class="contact-info-content">
+                            <h3>Twitter</h3>
+                            <p>Follow me on Twitter</p>
+                        </div>
+                    </a>
+
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper">
+                    <h3>Send a Message</h3>
+                    <form class="contact-form" id="contact-form">
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" placeholder="Tell me about your project or question..." required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                        <p id="form-status"></p>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p class="footer-text">&copy; 2024 Tauhidur Rahman. All rights reserved.</p>
+        </div>
+    </footer>
 
     <script>
         // Page Navigation
